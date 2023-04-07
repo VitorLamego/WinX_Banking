@@ -4,7 +4,7 @@ class Account {
   final String name;
   final double value;
   final double cardNumber;
-  final double clientName;
+  final String clientName;
   final String expiryDate;
   final bool isCreditCard;
   final double? limit;
