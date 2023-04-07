@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:statz_banking/views/home/components/blurry_container.dart';
 import 'package:statz_banking/views/home/components/card.dart';
 import 'package:statz_banking/views/home/components/history_card.dart';
+import 'package:statz_banking/views/home/controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,14 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentCard = 0;
-  bool balanceVisible = true;
+  HomeController controller = HomeController();
 
   Widget _buildPageIndicator(Size size) {
     List<Widget> list = [];
     for (int i = 0; i < 4; i++) {
-      list.add(
-          i == _currentCard ? _indicator(true, size) : _indicator(false, size));
+      list.add(i == controller.currentCard
+          ? _indicator(true, size)
+          : _indicator(false, size));
     }
 
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: list);
@@ -75,14 +76,15 @@ class _HomePageState extends State<HomePage> {
                       width: size.width * 0.2,
                       child: IconButton(
                         icon: Icon(
-                          balanceVisible
+                          controller.balanceVisible
                               ? Icons.visibility
                               : Icons.visibility_off,
                           color: Colors.white,
                         ),
                         onPressed: () {
                           setState(() {
-                            balanceVisible = !balanceVisible;
+                            controller.balanceVisible =
+                                !controller.balanceVisible;
                           });
                         },
                       ),
@@ -90,14 +92,15 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 Visibility(
-                  visible: balanceVisible,
+                  visible: controller.balanceVisible,
                   child: Center(
                     child: BlurryContainer(
-                        child: Container(
-                          height: size.height * 0.06,
-                          width: size.width * 0.3,
-                        ),
-                        blur: 4),
+                      blur: 4,
+                      child: SizedBox(
+                        height: size.height * 0.06,
+                        width: size.width * 0.3,
+                      ),
+                    ),
                   ),
                 )
               ]),
@@ -109,28 +112,28 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.only(bottom: size.height * 0.03),
             child: PageView(
               onPageChanged: (value) => setState(() {
-                _currentCard = value;
+                controller.currentCard = value;
               }),
               children: [
                 SizedBox(
                   height: size.height * 0.25,
                   width: size.width,
                   child: Stack(
-                    children: [
-                      const CardComponent(
+                    children: const [
+                      CardComponent(
                         color1: Color.fromARGB(255, 222, 222, 233),
                         color2: Color.fromARGB(255, 203, 210, 77),
                       ),
                       Positioned(
                         top: 20,
-                        child: const CardComponent(
+                        child: CardComponent(
                           color1: Color(0XFFD0C4D3),
                           color2: Color(0xFFC584DC),
                         ),
                       ),
                       Positioned(
                         top: 40,
-                        child: const CardComponent(
+                        child: CardComponent(
                           color1: Color(0XFFA0A2E5),
                           color2: Color(0XFF3A4396),
                         ),
@@ -170,7 +173,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       "Fatura Atual: ",
                       style: TextStyle(
@@ -218,7 +221,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               width: size.width * 0.9,
               margin: EdgeInsets.only(top: size.height * 0.04),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0XFF1E293A),
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(15),
@@ -226,7 +229,7 @@ class _HomePageState extends State<HomePage> {
               ),
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
+                  children: const [
                     HistoryCard(
                       imagePath: "assets/images/home/minibrlogo.png",
                       date: "23/02",

@@ -27,6 +27,7 @@ class HistoryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: size.height * 0.05,
@@ -40,39 +41,37 @@ class HistoryCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      type,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    Text(
-                      info,
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
-                    ),
-                  ],
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    type,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  Text(
+                    info,
+                    style: const TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                ],
               ),
             ],
           ),
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  value.toStringAsFixed(2),
-                  style: TextStyle(
-                      color: value > 0 ? Color(0XFF52EC86) : Color(0XFFEC5252),
-                      fontSize: 17),
-                ),
-                Text(
-                  date,
-                  style: TextStyle(color: Colors.grey, fontSize: 12),
-                ),
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                value.toStringAsFixed(2),
+                style: TextStyle(
+                    color: value > 0
+                        ? const Color(0XFF52EC86)
+                        : const Color(0XFFEC5252),
+                    fontSize: 17),
+              ),
+              Text(
+                date,
+                style: const TextStyle(color: Colors.grey, fontSize: 12),
+              ),
+            ],
           ),
         ],
       ),
