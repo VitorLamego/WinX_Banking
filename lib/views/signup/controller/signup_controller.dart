@@ -62,7 +62,8 @@ class SignupController {
     }
     if(maskFormatter.isFill() && senha.text.length >= 8 && name.text.length != 0){
       validateCpf.value = true;
-      validateSenha.value = false;
+      validateSenha.value = true;
+      validateName.value = true;
       return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), cpf.text, name.text);
 
     }
