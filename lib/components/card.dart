@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 class CardComponent extends StatelessWidget {
   const CardComponent({
     super.key,
-    required this.color1,
-    required this.color2,
+    required this.colors,
     required this.name,
+    required this.bankImage,
+    required this.bankName,
+    required this.cardNumber,
   });
 
-  final Color color1;
-  final Color color2;
+  final List<Color> colors;
   final String name;
+  final String bankImage;
+  final String bankName;
+  final String cardNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +25,7 @@ class CardComponent extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            color1,
-            color2,
-          ],
+          colors: colors,
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
         ),
@@ -54,10 +55,9 @@ class CardComponent extends StatelessWidget {
                   Container(
                     height: size.height * 0.04,
                     width: size.width * 0.2,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/home/brblogo.png"),
-                      ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(bankImage),
                     ),
                   ),
                   Container(
@@ -76,15 +76,15 @@ class CardComponent extends StatelessWidget {
               margin: EdgeInsets.only(top: size.height * 0.02),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    "BRB Bank",
+                    bankName,
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
                   Text(
-                    "5547 **** **** 9823",
+                    cardNumber,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
