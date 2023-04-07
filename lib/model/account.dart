@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:statz_banking/model/transaction.dart';
 
 class Account {
+  final String bankName;
   final double value;
   final String cardNumber;
   final String expiryDate;
@@ -11,6 +12,7 @@ class Account {
   final List<Transaction> transactions;
 
   Account(
+    this.bankName,
     this.value,
     this.cardNumber,
     this.expiryDate,
@@ -30,6 +32,7 @@ class Account {
       Map<String, dynamic> data, List<Transaction> transactions) {
     final String cardNumber = generateCardNumber(data["cardNumber"]);
     return Account(
+      data["name"],
       double.parse(data["value"]),
       cardNumber,
       "23/09",
