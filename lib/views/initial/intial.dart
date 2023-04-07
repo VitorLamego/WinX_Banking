@@ -107,7 +107,7 @@ class _InitialPageState extends State<InitialPage> {
                         child: Row(
                           children: [
                             const Text(
-                              "Don't have an account?",
+                              "Não tem uma conta?",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 12,
@@ -118,7 +118,7 @@ class _InitialPageState extends State<InitialPage> {
                               margin: EdgeInsets.only(left: size.width * 0.01),
                               child: InkWell(
                                 child: const Text(
-                                  "Sign up",
+                                  "Registre-se",
                                   style: TextStyle(
                                       fontSize: 12,
                                       color: Color(0XFF2983FB),
