@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/navbar.dart';
+import 'package:statz_banking/core/app_shared.dart';
 import 'package:statz_banking/views/home/components/blurry_container.dart';
-import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/views/home/controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,12 +49,16 @@ class _HomePageState extends State<HomePage> {
     controller.currentCard.addListener(() {
       controller.updateCurrentAccount();
     });
+    if (AppShared.actualUser.accounts != null) {
+      controller.updateCurrentAccount();
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: controller.state,

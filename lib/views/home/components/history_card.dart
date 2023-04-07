@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HistoryCard extends StatelessWidget {
   const HistoryCard({
@@ -60,7 +61,7 @@ class HistoryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                value.toStringAsFixed(2),
+                value.toStringAsFixed(2).replaceAll('.', ','),
                 style: TextStyle(
                     color: value > 0
                         ? const Color(0XFF52EC86)

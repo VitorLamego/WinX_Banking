@@ -1,7 +1,5 @@
 // ignore_for_file: constant_identifier_names
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/core/app_shared.dart';
@@ -66,9 +64,14 @@ class HomeController {
           transactions.add(element);
         }
       }
-      transactions.sort((a, b) => a.date.compareTo(b.date));
+      transactions.sort((a, b) {
+        DateTime dateA = DateTime.parse(a.date);
+        DateTime dateB = DateTime.parse(b.date);
 
-      for (Transaction element in transactions.reversed) {
+        return dateA.compareTo(dateB);
+      });
+
+      for (Transaction element in transactions) {
         transactionsHistory.add(
           HistoryCard(
             imagePath: getBankMiniLogo(element.originBank),
