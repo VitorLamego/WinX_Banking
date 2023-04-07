@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:statz_banking/views/initial/intial.dart';
-import 'package:statz_banking/views/login/login.dart';
 
 void main() {
   runApp(const MainApp());
