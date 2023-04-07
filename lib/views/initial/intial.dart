@@ -35,10 +35,12 @@ class _InitialPageState extends State<InitialPage> {
               top: size.height * 0.29,
               child: Transform.rotate(
                 angle: -math.pi / 10,
-                child: CardComponent(
-                  color1: Color(0XFFD0C4D3),
-                  color2: Color(0xFFC584DC),
+                child: const CardComponent(
+                  colors: [Color(0XFFD0C4D3), Color(0xFFC584DC)],
+                  bankImage: "assets/images/home/brblogo.png",
                   name: "CARLOS M ALMEIDA",
+                  bankName: "Banco BRB",
+                  cardNumber: "5547 **** **** 9823",
                 ),
               )),
           Positioned(
@@ -46,10 +48,12 @@ class _InitialPageState extends State<InitialPage> {
             top: size.height * 0.22,
             child: Transform.rotate(
               angle: -math.pi / 6,
-              child: CardComponent(
-                color1: Color(0XFFA0A2E5),
-                color2: Color(0XFF3A4396),
+              child: const CardComponent(
+                colors: [Color(0XFFA0A2E5), Color(0XFF3A4396)],
+                bankImage: "assets/images/home/brblogo.png",
                 name: "CARLOS M ALMEIDA",
+                bankName: "Banco BRB",
+                cardNumber: "5547 **** **** 9823",
               ),
             ),
           ),
@@ -78,12 +82,12 @@ class _InitialPageState extends State<InitialPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginPage(),
+                      builder: (context) => const LoginPage(),
                     ));
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
-                  Color(0XFF2983FB),
+                  const Color(0XFF2983FB),
                 ),
                 padding: MaterialStateProperty.all(
                   EdgeInsets.zero,
@@ -94,7 +98,7 @@ class _InitialPageState extends State<InitialPage> {
                 children: [
                   Container(
                       margin: EdgeInsets.only(top: size.height * 0.015),
-                      child: Text("Login"))
+                      child: const Text("Login"))
                 ],
               ),
             ),
@@ -137,7 +141,7 @@ class _InitialPageState extends State<InitialPage> {
           )
         ],
       ),
-      backgroundColor: Color(0XFF151C27),
+      backgroundColor: const Color(0XFF151C27),
     );
   }
 }

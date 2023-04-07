@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/core/app_shared.dart';
 import 'package:statz_banking/interfaces/response_interface.dart';
 import 'package:statz_banking/model/account.dart';
@@ -61,7 +62,7 @@ class HomeController {
         for (var element in account.transactions) {
           transactionsHistory.add(
             HistoryCard(
-              imagePath: getBankLogo(account.bankName),
+              imagePath: getBankMiniLogo(account.bankName),
               type: element.type,
               info: element.cpf,
               value: element.value,
@@ -76,7 +77,7 @@ class HomeController {
       for (var element in actualAccount.transactions) {
         transactionsHistory.add(
           HistoryCard(
-            imagePath: getBankLogo(actualAccount.bankName),
+            imagePath: getBankMiniLogo(actualAccount.bankName),
             type: element.type,
             info: element.cpf,
             value: element.value,
@@ -148,9 +149,65 @@ class HomeController {
 
   String getBankLogo(String bankName) {
     if (bankName == "Banco BRB") {
+      return "assets/images/home/brblogo.png";
+    } else {
+      return "assets/images/home/nubank1.png";
+    }
+  }
+
+  String getBankMiniLogo(String bankName) {
+    if (bankName == "Banco BRB") {
       return "assets/images/home/minibrlogo.png";
     } else {
       return "assets/images/home/nubank1.png";
     }
+  }
+
+  List<Widget> createCardsScroll(Size size) {
+    List<Widget> pageCards = [];
+
+    List<Widget> cardsComponents = [];
+
+    List<Widget> result = [];
+    var i = 3;
+    for (Account account in AppShared.actualUser.accounts!) {
+      cardsComponents.add(
+        Center(
+          child: CardComponent(
+            colors: returnCardsColors(i--),
+            name: createCreditCardName(),
+            bankImage: getBankLogo(account.bankName),
+            bankName: account.bankName,
+            cardNumber: account.cardNumber,
+          ),
+        ),
+      );
+    }
+    double topMargin = 0;
+    for (var element in cardsComponents.reversed) {
+      pageCards.add(Positioned(top: topMargin, child: element));
+      topMargin += 20;
+    }
+
+    result.add(SizedBox(
+      height: size.height * 0.25,
+      width: size.width,
+      child: Stack(
+        children: pageCards,
+      ),
+    ));
+
+    result.addAll(cardsComponents);
+
+    return result;
+  }
+
+  List<Color> returnCardsColors(int card) {
+    if (card % 3 == 0) {
+      return [const Color(0XFFA0A2E5), const Color(0XFF3A4396)];
+    } else if (card % 3 == 1) {
+      return [const Color(0XFFD0C4D3), const Color(0xFFC584DC)];
+    }
+    return [const Color(0XFFA0A2E5), const Color.fromARGB(255, 163, 210, 77)];
   }
 }

@@ -138,61 +138,7 @@ class _HomePageState extends State<HomePage> {
                             onPageChanged: (value) => setState(() {
                               controller.currentCard.value = value;
                             }),
-                            children: [
-                              SizedBox(
-                                height: size.height * 0.25,
-                                width: size.width,
-                                child: Stack(
-                                  children: [
-                                    CardComponent(
-                                      color1: const Color.fromARGB(
-                                          255, 222, 222, 233),
-                                      color2: const Color.fromARGB(
-                                          255, 203, 210, 77),
-                                      name: controller.createCreditCardName(),
-                                    ),
-                                    Positioned(
-                                      top: 20,
-                                      child: CardComponent(
-                                        color1: const Color(0XFFD0C4D3),
-                                        color2: const Color(0xFFC584DC),
-                                        name: controller.createCreditCardName(),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 40,
-                                      child: CardComponent(
-                                        color1: const Color(0XFFA0A2E5),
-                                        color2: const Color(0XFF3A4396),
-                                        name: controller.createCreditCardName(),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Center(
-                                child: CardComponent(
-                                  color1: const Color(0XFFA0A2E5),
-                                  color2: const Color(0XFF3A4396),
-                                  name: controller.createCreditCardName(),
-                                ),
-                              ),
-                              Center(
-                                child: CardComponent(
-                                  color1: const Color(0XFFD0C4D3),
-                                  color2: const Color(0xFFC584DC),
-                                  name: controller.createCreditCardName(),
-                                ),
-                              ),
-                              Center(
-                                child: CardComponent(
-                                  color1: const Color(0XFFA0A2E5),
-                                  color2:
-                                      const Color.fromARGB(255, 163, 210, 77),
-                                  name: controller.createCreditCardName(),
-                                ),
-                              ),
-                            ],
+                            children: controller.createCardsScroll(size),
                           ),
                         ),
                         _buildPageIndicator(size),
