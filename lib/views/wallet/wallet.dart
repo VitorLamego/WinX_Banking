@@ -355,6 +355,19 @@ class _WalletPageState extends State<WalletPage> {
             ),
           ),
           ),
+             Container(
+                            margin: EdgeInsets.only(
+                                top: size.height * 0.82,
+                                left: size.width * 0.26),
+                            child: const Text(
+                              "Simulação Para Dinheiro fora do BRB",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
           const Align(
             alignment: Alignment.bottomCenter,
             child: NavBar(isHomeSelected: false),
