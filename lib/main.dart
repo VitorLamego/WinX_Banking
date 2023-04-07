@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:statz_banking/views/home.dart';
+import 'package:statz_banking/views/home/home.dart';
 
 void main() {
   runApp(const MainApp());
