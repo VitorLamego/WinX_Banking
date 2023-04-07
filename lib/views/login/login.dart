@@ -37,7 +37,8 @@ class _LoginPageState extends State<LoginPage> {
             height: size.height *0.06,
               child: ElevatedButton(
                 onPressed: () async{
-                  int statusCode = await controller.logInButtonTrigger();   
+                  int statusCode = await controller.logInButtonTrigger();
+                  print(statusCode);   
                   if(statusCode == 200){
                        Navigator.push(
                                       context,

@@ -64,7 +64,7 @@ class SignupController {
       validateCpf.value = true;
       validateSenha.value = true;
       validateName.value = true;
-      return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), cpf.text, name.text);
+      return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), senha.text, name.text);
 
     }
     else{
