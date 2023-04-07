@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/navbar.dart';
 import 'package:statz_banking/views/wallet/components/chart_button.dart';
+import 'package:statz_banking/views/wallet/components/investment_card.dart';
 import 'package:statz_banking/views/wallet/controller/wallet_controller.dart';
 
 import '../home/components/history_card.dart';
@@ -23,6 +24,7 @@ class _WalletPageState extends State<WalletPage> {
       body: Stack(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SafeArea(
                 child: Container(
@@ -196,65 +198,106 @@ class _WalletPageState extends State<WalletPage> {
               ),
               ValueListenableBuilder(
                 valueListenable: controller.buttonPressed,
-                builder: (context, value, child) => Visibility(
-                  visible: controller.buttonPressed.value != 1,
-                  child: Expanded(
-                    child: Container(
-                        width: size.width * 0.9,
-                        margin: EdgeInsets.only(top: size.height * 0.05),
-                        decoration: const BoxDecoration(
-                          color: Color(0XFF1E293A),
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(15),
+                builder: (context, value, child) => controller
+                            .buttonPressed.value !=
+                        1
+                    ? Expanded(
+                        child: Center(
+                          child: Container(
+                            width: size.width * 0.9,
+                            margin: EdgeInsets.only(top: size.height * 0.05),
+                            decoration: const BoxDecoration(
+                              color: Color(0XFF1E293A),
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(15),
+                              ),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  const HistoryCard(
+                                    imagePath:
+                                        "assets/images/home/minibrlogo.png",
+                                    date: "23/02",
+                                    info: "073.092.323-21",
+                                    type: "Pix",
+                                    value: -345.23,
+                                  ),
+                                  const HistoryCard(
+                                    imagePath: "assets/images/home/nubank1.png",
+                                    date: "23/02",
+                                    info: "322.214.332-21",
+                                    type: "Cartão de Crédito",
+                                    value: 543.23,
+                                  ),
+                                  const HistoryCard(
+                                    imagePath: "assets/images/home/nubank1.png",
+                                    date: "23/02",
+                                    info: "542.434.632-21",
+                                    type: "TED",
+                                    value: 1000.00,
+                                  ),
+                                  const HistoryCard(
+                                    imagePath:
+                                        "assets/images/home/minibrlogo.png",
+                                    date: "23/02",
+                                    info: "073.092.323-21",
+                                    type: "Pix",
+                                    value: -129.23,
+                                  ),
+                                  const HistoryCard(
+                                    imagePath: "assets/images/home/nubank1.png",
+                                    date: "23/02",
+                                    info: "073.092.323-21",
+                                    type: "Transferência",
+                                    value: 23.23,
+                                  ),
+                                  SizedBox(
+                                    height: size.height * 0.2,
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              const HistoryCard(
-                                imagePath: "assets/images/home/minibrlogo.png",
-                                date: "23/02",
-                                info: "073.092.323-21",
-                                type: "Pix",
-                                value: -345.23,
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(
+                                top: size.height * 0.03,
+                                left: size.width * 0.04),
+                            child: const Text(
+                              "Investindo no BRB",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
                               ),
-                              const HistoryCard(
-                                imagePath: "assets/images/home/nubank1.png",
-                                date: "23/02",
-                                info: "322.214.332-21",
-                                type: "Cartão de Crédito",
-                                value: 543.23,
-                              ),
-                              const HistoryCard(
-                                imagePath: "assets/images/home/nubank1.png",
-                                date: "23/02",
-                                info: "542.434.632-21",
-                                type: "TED",
-                                value: 1000.00,
-                              ),
-                              const HistoryCard(
-                                imagePath: "assets/images/home/minibrlogo.png",
-                                date: "23/02",
-                                info: "073.092.323-21",
-                                type: "Pix",
-                                value: -129.23,
-                              ),
-                              const HistoryCard(
-                                imagePath: "assets/images/home/nubank1.png",
-                                date: "23/02",
-                                info: "073.092.323-21",
-                                type: "Transferência",
-                                value: 23.23,
-                              ),
-                              SizedBox(
-                                height: size.height * 0.2,
-                              )
-                            ],
+                            ),
                           ),
-                        )),
-                  ),
-                ),
-              )
+                          const InvestmentCard(
+                            investmentImage: "poupanca.png",
+                            investment: "Poupança",
+                            actualValue: 12903.32,
+                            returnPercentage: 0.05,
+                          ),
+                          const InvestmentCard(
+                            investmentImage: "real-state.png",
+                            investment: "LCI e LCA",
+                            actualValue: 12903.32,
+                            returnPercentage: 0.02,
+                          ),
+                          const InvestmentCard(
+                            investmentImage: "certificate.png",
+                            investment: "CDB",
+                            actualValue: 12903.32,
+                            returnPercentage: 0.01,
+                          ),
+                        ],
+                      ),
+              ),
             ],
           ),
           Container(
