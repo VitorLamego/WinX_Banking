@@ -16,7 +16,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.12,
+      height: size.height * 0.1,
       width: size.width,
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 24, 43, 73).withOpacity(.9),
@@ -28,7 +28,7 @@ class _NavBarState extends State<NavBar> {
         margin: EdgeInsets.symmetric(horizontal: size.width * 0.2),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ElevatedButton(
               onPressed: () {
@@ -48,13 +48,14 @@ class _NavBarState extends State<NavBar> {
                   Icon(
                     Icons.home_outlined,
                     color: widget.isHomeSelected ? Colors.white : Colors.grey,
-                    size: 35,
+                    size: 30,
                   ),
                   Text(
                     "Home",
                     style: TextStyle(
                         color:
-                            widget.isHomeSelected ? Colors.white : Colors.grey),
+                            widget.isHomeSelected ? Colors.white : Colors.grey,
+                        fontSize: 12),
                   )
                 ],
               ),
@@ -77,14 +78,15 @@ class _NavBarState extends State<NavBar> {
                   Icon(
                     Icons.wallet_outlined,
                     color: !widget.isHomeSelected ? Colors.white : Colors.grey,
-                    size: 35,
+                    size: 30,
                   ),
                   Text(
                     "Carteira",
                     style: TextStyle(
-                        color: !widget.isHomeSelected
-                            ? Colors.white
-                            : Colors.grey),
+                      color:
+                          !widget.isHomeSelected ? Colors.white : Colors.grey,
+                      fontSize: 12,
+                    ),
                   )
                 ],
               ),

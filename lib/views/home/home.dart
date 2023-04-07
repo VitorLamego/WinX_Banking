@@ -98,10 +98,10 @@ class _HomePageState extends State<HomePage> {
                       visible: controller.balanceVisible,
                       child: Center(
                         child: BlurryContainer(
-                          blur: 4,
+                          blur: 6,
                           child: SizedBox(
                             height: size.height * 0.06,
-                            width: size.width * 0.3,
+                            width: size.width * 0.4,
                           ),
                         ),
                       ),
