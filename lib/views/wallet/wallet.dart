@@ -1,11 +1,10 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/navbar.dart';
+import 'package:statz_banking/core/app_shared.dart';
 import 'package:statz_banking/views/wallet/components/chart_button.dart';
 import 'package:statz_banking/views/wallet/components/investment_card.dart';
 import 'package:statz_banking/views/wallet/controller/wallet_controller.dart';
-
-import '../home/components/history_card.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({super.key});
@@ -108,25 +107,46 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     Row(
                       children: [
-                        Column(
+                      ValueListenableBuilder(
+                        valueListenable: controller.buttonPressed,
+                      builder: (context, value, child) =>
+                      Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Text(
-                              "BRB 0345",
+                              "${AppShared.actualUser.accounts?[0].bankName}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 12),
                             ),
+                            if(controller.buttonPressed.value == 1)
                             Text(
-                              "R\$ 9.093,32",
+                              AppShared.actualUser.accounts![0].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[0].value}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700),
-                            )
+                            ),
+                            if(controller.buttonPressed.value == 2)
+                            Text(
+                              AppShared.actualUser.accounts![0].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[0].value}" :"----" ,
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                             if(controller.buttonPressed.value == 3)
+                            Text(
+                              AppShared.actualUser.accounts![0].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[0].limit}" :"----" ,
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ],
                         ),
+                      ),
                         Container(
                           width: size.width * 0.005,
                           color: Colors.grey,
@@ -137,25 +157,47 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     Row(
                       children: [
-                        Column(
+                          ValueListenableBuilder(
+                        valueListenable: controller.buttonPressed,
+                      builder: (context, value, child) =>
+                      Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Text(
-                              "Nu 1273",
+                              "${AppShared.actualUser.accounts?[1].bankName}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 12),
                             ),
+                            if(controller.buttonPressed.value == 1)
                             Text(
-                              "R\$ 12.093,32",
+                              AppShared.actualUser.accounts![1].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[1].value}",
                               style: TextStyle(
                                   color: Colors.purple,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700),
-                            )
+                            ),
+                            if(controller.buttonPressed.value == 2)
+                             Text(
+                              AppShared.actualUser.accounts![1].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[1].value}" : "----" ,
+                              style: TextStyle(
+                                  color: Colors.purple,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                              if(controller.buttonPressed.value == 3)
+                             Text(
+                              AppShared.actualUser.accounts![1].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[1].limit}" : "----" ,
+                              style: TextStyle(
+                                  color: Colors.purple,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+
                           ],
                         ),
+                          ),
                         Container(
                           width: size.width * 0.005,
                           color: Colors.grey,
@@ -166,25 +208,46 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     Row(
                       children: [
-                        Column(
+                       ValueListenableBuilder(
+                        valueListenable: controller.buttonPressed,
+                      builder: (context, value, child) =>
+                       Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Text(
-                              "BRB 4930",
+                              "${AppShared.actualUser.accounts?[2].bankName}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 12),
                             ),
+                            if(controller.buttonPressed.value == 1)
                             Text(
-                              "R\$ 1.093,32",
+                              AppShared.actualUser.accounts![2].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[2].value}",
                               style: TextStyle(
                                   color: Colors.red,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700),
-                            )
+                            ),
+                            if(controller.buttonPressed.value == 2)
+                              Text(
+                              AppShared.actualUser.accounts![2].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[2].value}" : "----" ,
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                             if(controller.buttonPressed.value == 3)
+                              Text(
+                              AppShared.actualUser.accounts![2].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[2].limit}" : "----" ,
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ],
                         ),
+                       ),
                         Container(
                           width: size.width * 0.005,
                           color: Colors.grey,
@@ -214,48 +277,8 @@ class _WalletPageState extends State<WalletPage> {
                             ),
                             child: SingleChildScrollView(
                               child: Column(
-                                children: [
-                                  const HistoryCard(
-                                    imagePath:
-                                        "assets/images/home/minibrlogo.png",
-                                    date: "23/02",
-                                    info: "073.092.323-21",
-                                    type: "Pix",
-                                    value: -345.23,
-                                  ),
-                                  const HistoryCard(
-                                    imagePath: "assets/images/home/nubank1.png",
-                                    date: "23/02",
-                                    info: "322.214.332-21",
-                                    type: "Cartão de Crédito",
-                                    value: 543.23,
-                                  ),
-                                  const HistoryCard(
-                                    imagePath: "assets/images/home/nubank1.png",
-                                    date: "23/02",
-                                    info: "542.434.632-21",
-                                    type: "TED",
-                                    value: 1000.00,
-                                  ),
-                                  const HistoryCard(
-                                    imagePath:
-                                        "assets/images/home/minibrlogo.png",
-                                    date: "23/02",
-                                    info: "073.092.323-21",
-                                    type: "Pix",
-                                    value: -129.23,
-                                  ),
-                                  const HistoryCard(
-                                    imagePath: "assets/images/home/nubank1.png",
-                                    date: "23/02",
-                                    info: "073.092.323-21",
-                                    type: "Transferência",
-                                    value: 23.23,
-                                  ),
-                                  SizedBox(
-                                    height: size.height * 0.2,
-                                  )
-                                ],
+                                children: 
+                                  controller.createTransactionsList()
                               ),
                             ),
                           ),
@@ -304,13 +327,33 @@ class _WalletPageState extends State<WalletPage> {
             width: size.width,
             margin: EdgeInsets.only(top: size.height * 0.265),
             height: size.width * 0.1,
-            child: const Center(
-              child: Text(
-                "R\$ 23.089,96",
+            child: ValueListenableBuilder(
+                        valueListenable: controller.buttonPressed,
+                      builder: (context, value, child) =>Center(
+              child: 
+              Column(children: [
+                if(controller.buttonPressed.value == 1)
+                Text(
+                "R\$ ${controller.totalSaldo()}",
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
               ),
+              if(controller.buttonPressed.value == 2)
+               Text(
+                "R\$ ${controller.totalGastos()}",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+              ),
+              if(controller.buttonPressed.value == 3)
+               Text(
+                "R\$ ${controller.totalLimite()}",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+              ),
+              ]
             ),
+            ),
+          ),
           ),
           const Align(
             alignment: Alignment.bottomCenter,
