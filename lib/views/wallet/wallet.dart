@@ -114,7 +114,7 @@ class _WalletPageState extends State<WalletPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${AppShared.actualUser.accounts?[0].bankName}",
+                              "${AppShared.actualUser.accounts?[0].bankName}${AppShared.actualUser.accounts?[0].cardNumber.substring(AppShared.actualUser.accounts![0].cardNumber.length - 4)}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
@@ -164,7 +164,7 @@ class _WalletPageState extends State<WalletPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${AppShared.actualUser.accounts?[1].bankName}",
+                              "${AppShared.actualUser.accounts?[1].bankName}${AppShared.actualUser.accounts?[1].cardNumber.substring(AppShared.actualUser.accounts![1].cardNumber.length - 4)}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
@@ -215,7 +215,7 @@ class _WalletPageState extends State<WalletPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${AppShared.actualUser.accounts?[2].bankName}",
+                              "${AppShared.actualUser.accounts?[2].bankName}${AppShared.actualUser.accounts?[2].cardNumber.substring(AppShared.actualUser.accounts![2].cardNumber.length - 4)}",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w700,
@@ -300,22 +300,22 @@ class _WalletPageState extends State<WalletPage> {
                               ),
                             ),
                           ),
-                          const InvestmentCard(
+                           InvestmentCard(
                             investmentImage: "poupanca.png",
                             investment: "Poupança",
-                            actualValue: 12903.32,
+                            actualValue: AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.05,
                           ),
-                          const InvestmentCard(
+                         InvestmentCard(
                             investmentImage: "real-state.png",
                             investment: "LCI e LCA",
-                            actualValue: 12903.32,
+                            actualValue: AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.02,
                           ),
-                          const InvestmentCard(
+                          InvestmentCard(
                             investmentImage: "certificate.png",
                             investment: "CDB",
-                            actualValue: 12903.32,
+                            actualValue: AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.01,
                           ),
                         ],
