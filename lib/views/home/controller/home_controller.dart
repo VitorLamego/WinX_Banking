@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/core/app_shared.dart';
@@ -56,20 +58,26 @@ class HomeController {
 
   List<Widget> createTransactionsList() {
     List<Widget> transactionsHistory = [];
-
     if (currentCard.value == 0) {
+      List<dynamic> transactions = [];
+
       for (Account account in AppShared.actualUser.accounts!) {
         for (var element in account.transactions) {
-          transactionsHistory.add(
-            HistoryCard(
-              imagePath: getBankMiniLogo(account.bankName),
-              type: element.type,
-              info: element.cpf,
-              value: element.value,
-              date: element.date,
-            ),
-          );
+          transactions.add(element);
         }
+      }
+      transactions.sort((a, b) => a.date.compareTo(b.date));
+
+      for (Transaction element in transactions.reversed) {
+        transactionsHistory.add(
+          HistoryCard(
+            imagePath: getBankMiniLogo(element.originBank),
+            type: element.type,
+            info: element.cpf,
+            value: element.value,
+            date: element.date,
+          ),
+        );
       }
     } else {
       Account actualAccount =
@@ -118,7 +126,7 @@ class HomeController {
       for (var element in response.data) {
         List<Transaction> transactions = [];
         for (var transaction in element["transactions"]) {
-          transactions.add(Transaction.fromJson(transaction));
+          transactions.add(Transaction.fromJson(transaction, element["name"]));
         }
         accounts.add(Account.fromJson(element, transactions));
       }
