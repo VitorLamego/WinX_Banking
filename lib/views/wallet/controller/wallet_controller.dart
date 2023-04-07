@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:statz_banking/core/app_shared.dart';
 
 import '../../../model/account.dart';
+import '../../../model/transaction.dart';
 import '../../home/components/history_card.dart';
 
 class WalletController {
@@ -47,23 +48,35 @@ class WalletController {
   }
   List<Widget> createTransactionsList() {
     List<Widget> transactionsHistory = [];
+     List<dynamic> transactions = [];
 
+     
       for (Account account in AppShared.actualUser.accounts!) {
         for (var element in account.transactions) {
-          transactionsHistory.add(
-            HistoryCard(
-              imagePath: getBankLogo(account.bankName),
-              type: element.type,
-              info: element.cpf,
-              value: element.value,
-              date: element.date,
-            ),
-          );
+          transactions.add(element);
         }
+      }
+      transactions.sort((a, b) {
+        DateTime dateA = DateTime.parse(a.date);
+        DateTime dateB = DateTime.parse(b.date);
+
+        return dateA.compareTo(dateB);
+      });
+
+      for (Transaction element in transactions) {
+        transactionsHistory.add(
+          HistoryCard(
+            imagePath: getBankMiniLogo(element.originBank),
+            type: element.type,
+            info: element.cpf,
+            value: element.value,
+            date: element.date,
+          ),
+        );
       }
     return transactionsHistory;
   }
-   String getBankLogo(String bankName) {
+    String getBankMiniLogo(String bankName) {
     if (bankName == "Banco BRB") {
       return "assets/images/home/minibrlogo.png";
     } else {
