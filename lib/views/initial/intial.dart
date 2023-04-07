@@ -24,7 +24,7 @@ class _InitialPageState extends State<InitialPage> {
                 decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/BRB-Logo.png"),
-                  fit: BoxFit.fitHeight),
+                  fit: BoxFit.fill),
             ),
           ),
           Positioned(
