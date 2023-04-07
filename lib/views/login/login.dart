@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:statz_banking/components/custom_field.dart';
 import 'package:statz_banking/views/login/controller/login_controller.dart';
 
+import '../home/home.dart';
 import '../signup/signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,7 +37,17 @@ class _LoginPageState extends State<LoginPage> {
             height: size.height *0.06,
               child: ElevatedButton(
                 onPressed: () async{
-                  int statusCode = await controller.logInButtonTrigger();              
+                  int statusCode = await controller.logInButtonTrigger();   
+                  if(statusCode == 200){
+                       Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const HomePage(),
+                                      )
+                                      );
+
+                  }           
                 },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
