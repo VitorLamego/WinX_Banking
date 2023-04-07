@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:statz_banking/views/home/home.dart';
+import 'package:statz_banking/views/initial/intial.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: const HomePage(),
+      home: const InitialPage(),
     );
   }
 }
