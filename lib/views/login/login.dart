@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:statz_banking/views/login/components/custom_field.dart';
+import 'package:statz_banking/components/custom_field.dart';
 import 'package:statz_banking/views/login/controller/login_controller.dart';
+
+import '../signup/signup.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -81,7 +83,13 @@ class _LoginPageState extends State<LoginPage> {
                                       fontFamily: "Poppins"),
                                 ),
                                 onTap: () {
-                                 
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SignupPage(),
+                                      )
+                                      );
                                 },
                               ),
                             )

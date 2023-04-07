@@ -3,6 +3,8 @@ import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/views/login/login.dart';
 import 'dart:math' as math;
 
+import '../signup/signup.dart';
+
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
 
@@ -126,7 +128,13 @@ class _InitialPageState extends State<InitialPage> {
                                       fontFamily: "Poppins"),
                                 ),
                                 onTap: () {
-                                 
+                                 Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SignupPage(),
+                                      )
+                                      );
                                 },
                               ),
                             )
