@@ -124,6 +124,8 @@ class HomeController {
 
       AppShared.actualUser.accounts = accounts;
 
+      updateCurrentAccount();
+
       state.value = HomePageState.LOADED;
     }
   }

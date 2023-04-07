@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
     controller.currentCard.addListener(() {
       controller.updateCurrentAccount();
     });
-    controller.updateCurrentAccount();
     super.initState();
   }
 
