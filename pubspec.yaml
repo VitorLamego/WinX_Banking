@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  mask_text_input_formatter: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -17,8 +18,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  assets:
+    - assets/images/
 
-  fonts:
+fonts:
     - family: Poppins
       fonts:
         - asset: fonts/Poppins-Regular.ttf
@@ -29,6 +33,9 @@ flutter:
           weight: 500
         - asset: fonts/Poppins-SemiBold.ttf
           weight: 600
-        
+    - family: Monument
+      fonts:
+        - asset: fonts/MonumentExtender-Regular.otf
+          weight: 400
 
   
