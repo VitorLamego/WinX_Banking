@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/custom_field.dart';
-import 'package:statz_banking/views/login/controller/login_controller.dart';
 
-import '../signup/signup.dart';
+import '../login/login.dart';
+import 'controller/signup_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  LoginController controller = LoginController();
+class _SignupPageState extends State<SignupPage> {
+  SignupController controller = SignupController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
                   fit: BoxFit.fitHeight),
             ),
           ),
+          Container(margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),child: CustomField(leftMarginField: size.width *0,leftMarginText: size.width * 0.035, topMarginText: size.height * 0.23, heightContainerText: size.height * 0.08, widthContainerText: size.width * 0.18, topMarginField: size.height * 0.30, widthField: size.width * 0.9, heightField: size.height * 0.06, hasMask: false, hintText: 'Cláudio dos Santos', inputType: TextInputType.text, controller: controller.name, text: "Seu Nome", mask: controller.maskFormatter, topMarginError: size.height * 0.365, validate: controller.validateName, errorString:"Nome inválido",)),
           Container(margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),child: CustomField(leftMarginField: size.width *0,leftMarginText: size.width * 0.035, topMarginText: size.height * 0.37, heightContainerText: size.height * 0.08, widthContainerText: size.width * 0.15, topMarginField: size.height * 0.44, widthField: size.width * 0.9, heightField: size.height * 0.06, hasMask: true, hintText: '123.456.789-10', inputType: TextInputType.text, controller: controller.cpf, text: "Seu CPF", mask: controller.maskFormatter, topMarginError: size.height * 0.505, validate: controller.validateCpf, errorString: "CPF inválido",)),
           Container(margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),child: CustomField(leftMarginField: size.width *0,leftMarginText: size.width * 0.035, topMarginText: size.height * 0.52, heightContainerText: size.height * 0.085, widthContainerText: size.width * 0.20, topMarginField: size.height * 0.59, widthField: size.width * 0.9, heightField: size.height * 0.06, hasMask: false, hintText: 'min 8. caracteres', inputType: TextInputType.text, controller: controller.senha, text: "Sua Senha", mask: controller.maskFormatter,topMarginError: size.height * 0.655, validate: controller.validateSenha, errorString: "Senha inválida",)),
           Container(
@@ -52,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: size.height * 0.015), 
-                          child: Text("Login")
+                          child: Text("Registrar")
                         )
                                       
                       ],
@@ -60,11 +61,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
           ),
             Container(
-                        margin: EdgeInsets.only(left: size.width * 0.25, top: size.height * 0.82),
+                        margin: EdgeInsets.only(left: size.width * 0.26, top: size.height * 0.82),
                         child: Row(
                           children: [
                             const Text(
-                              "Não tem uma conta?",
+                              "Já tem uma conta?",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 12,
@@ -75,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                               margin: EdgeInsets.only(left: size.width * 0.01),
                               child: InkWell(
                                 child: const Text(
-                                  "Registre-se",
+                                  "Faça Login",
                                   style: TextStyle(
                                       fontSize: 12,
                                       color: Color(0XFF2983FB),
@@ -87,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const SignupPage(),
+                                            const LoginPage(),
                                       )
                                       );
                                 },
