@@ -11,7 +11,8 @@ class LoginRepository {
     connectTimeout: const Duration(seconds: 25),
   ));
 
-  Future<ResponseInterface> verifyUserRequest(String cpf, String password) async {
+  Future<ResponseInterface> verifyUserRequest(
+      String cpf, String password) async {
     Map<String, String> body = {"cpf": cpf, "password": password};
     Response response;
     try {
@@ -23,7 +24,7 @@ class LoginRepository {
         data: jsonEncode(body),
       );
       log("User verified!");
-      return ResponseInterface(response.data["message"], 200);
+      return ResponseInterface(response.data, 200);
     } on DioError catch (error) {
       log(error.toString());
       if (error.response == null) {

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:statz_banking/components/navbar.dart';
 import 'package:statz_banking/views/home/components/blurry_container.dart';
@@ -144,20 +142,20 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    Center(
-                      child: const CardComponent(
+                    const Center(
+                      child: CardComponent(
                         color1: Color(0XFFA0A2E5),
                         color2: Color(0XFF3A4396),
                       ),
                     ),
-                    Center(
-                      child: const CardComponent(
+                    const Center(
+                      child: CardComponent(
                         color1: Color(0XFFD0C4D3),
                         color2: Color(0xFFC584DC),
                       ),
                     ),
-                    Center(
-                      child: const CardComponent(
+                    const Center(
+                      child: CardComponent(
                         color1: Color(0XFFA0A2E5),
                         color2: Color.fromARGB(255, 163, 210, 77),
                       ),
@@ -212,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           height: size.height * 0.1 * 0.5,
                           decoration: BoxDecoration(
-                              color: Color(0XFF3A4396),
+                              color: const Color(0XFF3A4396),
                               borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
@@ -233,35 +231,35 @@ class _HomePageState extends State<HomePage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        HistoryCard(
+                        const HistoryCard(
                           imagePath: "assets/images/home/minibrlogo.png",
                           date: "23/02",
                           info: "073.092.323-21",
                           type: "Pix",
                           value: -345.23,
                         ),
-                        HistoryCard(
+                        const HistoryCard(
                           imagePath: "assets/images/home/nubank1.png",
                           date: "23/02",
                           info: "322.214.332-21",
                           type: "Cartão de Crédito",
                           value: 543.23,
                         ),
-                        HistoryCard(
+                        const HistoryCard(
                           imagePath: "assets/images/home/nubank1.png",
                           date: "23/02",
                           info: "542.434.632-21",
                           type: "TED",
                           value: 1000.00,
                         ),
-                        HistoryCard(
+                        const HistoryCard(
                           imagePath: "assets/images/home/minibrlogo.png",
                           date: "23/02",
                           info: "073.092.323-21",
                           type: "Pix",
                           value: -129.23,
                         ),
-                        HistoryCard(
+                        const HistoryCard(
                           imagePath: "assets/images/home/nubank1.png",
                           date: "23/02",
                           info: "073.092.323-21",
@@ -278,7 +276,7 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          Align(
+          const Align(
             alignment: Alignment.bottomCenter,
             child: NavBar(
               isHomeSelected: true,
