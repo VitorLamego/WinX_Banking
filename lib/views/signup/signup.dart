@@ -37,7 +37,16 @@ class _SignupPageState extends State<SignupPage> {
             height: size.height *0.06,
               child: ElevatedButton(
                 onPressed: () async{
-                  int statusCode = await controller.logInButtonTrigger();              
+                  int statusCode = await controller.logInButtonTrigger();
+                  if(statusCode == 201){
+                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginPage(),
+                                      )
+                                      );
+                  }              
                 },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(

@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/BRB-Logo.png"),
-                  fit: BoxFit.fitHeight),
+                  fit: BoxFit.fill),
             ),
           ),
           Container(margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),child: CustomField(leftMarginField: size.width *0,leftMarginText: size.width * 0.035, topMarginText: size.height * 0.37, heightContainerText: size.height * 0.08, widthContainerText: size.width * 0.15, topMarginField: size.height * 0.44, widthField: size.width * 0.9, heightField: size.height * 0.06, hasMask: true, hintText: '123.456.789-10', inputType: TextInputType.text, controller: controller.cpf, text: "Seu CPF", mask: controller.maskFormatter, topMarginError: size.height * 0.505, validate: controller.validateCpf, errorString: "CPF inválido", obscureText: false,)),

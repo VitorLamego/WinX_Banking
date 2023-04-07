@@ -54,7 +54,7 @@ class LoginController {
     }
     if(maskFormatter.isFill() && senha.text.length >= 8){
       validateCpf.value = true;
-      validateSenha.value = false;
+      validateSenha.value = true;
       return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), cpf.text);
 
     }
