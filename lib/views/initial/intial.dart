@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/views/login/login.dart';
+import 'dart:math' as math;
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -25,6 +27,28 @@ class _InitialPageState extends State<InitialPage> {
                   fit: BoxFit.fitHeight),
             ),
           ),
+          Positioned(
+            
+            left: size.width *0.08,
+            top: size.height * 0.29,
+                child: Transform.rotate(angle: - math.pi/10 ,child:CardComponent(    
+                  color1: Color(0XFFD0C4D3),
+                  color2: Color(0xFFC584DC)),)
+          ),
+          Positioned(
+            
+            left: - size.width *0.06,
+            top: size.height * 0.22,
+            child: Transform.rotate(angle: - math.pi/6,
+                child: CardComponent(    
+                   color1: Color(0XFFA0A2E5),
+                          color2: Color(0XFF3A4396),
+                          ),
+            ),
+          ),
+          
+    
+          
           Container(
                     margin: EdgeInsets.only(left: size.width * 0.06, top: size.height * 0.6),
                     height: size.height * 0.1,
@@ -35,7 +59,6 @@ class _InitialPageState extends State<InitialPage> {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
-                            fontFamily: 'Monument',
                             fontWeight: FontWeight.w400),
                       ),
                     ),

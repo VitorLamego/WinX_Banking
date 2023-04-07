@@ -34,9 +34,5 @@ flutter:
           weight: 500
         - asset: fonts/Poppins-SemiBold.ttf
           weight: 600
-    - family: Monument
-      fonts:
-        - asset: fonts/MonumentExtender-Regular.otf
-          weight: 400
 
   

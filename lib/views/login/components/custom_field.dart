@@ -58,7 +58,6 @@ class CustomField extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
-                      fontFamily: 'Monument',
                       fontWeight: FontWeight.w400),
                     ),
                   ),
