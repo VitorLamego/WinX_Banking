@@ -57,7 +57,7 @@ class CustomField extends StatelessWidget {
                     text,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 10,
                       fontWeight: FontWeight.w400),
                     ),
                   ),
