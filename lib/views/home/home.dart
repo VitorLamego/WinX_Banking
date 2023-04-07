@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:statz_banking/views/home/components/blurry_container.dart';
-import 'package:statz_banking/views/home/components/card.dart';
+import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/views/home/components/history_card.dart';
 import 'package:statz_banking/views/home/controller/home_controller.dart';
 
