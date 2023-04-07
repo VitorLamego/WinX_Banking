@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
          Container(
                 height: size.height * 0.07,
                 width: size.width * 0.35,
-                margin: EdgeInsets.only(left: size.width * 0.325, top: size. height *0.15),
+                margin: EdgeInsets.only(left: size.width * 0.315, top: size. height *0.15),
                 decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/BRB-Logo.png"),
