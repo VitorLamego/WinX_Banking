@@ -66,7 +66,7 @@ class _InitialPageState extends State<InitialPage> {
   
                   Container(
                     margin: EdgeInsets.only(top: size.height * 0.73, left: size.width *0.06),
-                    width: size.width *0.45,
+                    width: size.width *0.5,
                     height: size.height *0.06,
                      child: ElevatedButton(
                               onPressed: () {
@@ -103,7 +103,7 @@ class _InitialPageState extends State<InitialPage> {
                                 ),
                   ),
                   Container(
-                        margin: EdgeInsets.only(left: size.width * 0.07, top: size.height * 0.8),
+                        margin: EdgeInsets.only(left: size.width * 0.065, top: size.height * 0.8),
                         child: Row(
                           children: [
                             const Text(
