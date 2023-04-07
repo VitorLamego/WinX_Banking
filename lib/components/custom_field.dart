@@ -24,6 +24,7 @@ class CustomField extends StatelessWidget {
   required this.validate,
   required this.topMarginError,
   required this.errorString,
+  required this.obscureText,
   super.key});
 
   final double leftMarginText;
@@ -43,6 +44,7 @@ class CustomField extends StatelessWidget {
   final ValueNotifier<bool>  validate;
   final String errorString;
   final double topMarginError;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +79,7 @@ class CustomField extends StatelessWidget {
                       style: const TextStyle(color: Colors.white),
                       inputFormatters: hasMask ? [mask] : null,
                       controller: controller,
+                      obscureText: obscureText,
                       decoration: InputDecoration(
                         hintText: hintText,
                         hintStyle: const TextStyle(
