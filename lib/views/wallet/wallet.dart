@@ -107,97 +107,51 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     Row(
                       children: [
-                      ValueListenableBuilder(
-                        valueListenable: controller.buttonPressed,
-                      builder: (context, value, child) =>
-                      Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "${AppShared.actualUser.accounts?[0].bankName}${AppShared.actualUser.accounts?[0].cardNumber.substring(AppShared.actualUser.accounts![0].cardNumber.length - 4)}",
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12),
-                            ),
-                            if(controller.buttonPressed.value == 1)
-                            Text(
-                              AppShared.actualUser.accounts![0].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[0].value}",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            if(controller.buttonPressed.value == 2)
-                            Text(
-                              AppShared.actualUser.accounts![0].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[0].value}" :"----" ,
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                             if(controller.buttonPressed.value == 3)
-                            Text(
-                              AppShared.actualUser.accounts![0].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[0].limit}" :"----" ,
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
-                        ),
-                      ),
-                        Container(
-                          width: size.width * 0.005,
-                          color: Colors.grey,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.03),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                          ValueListenableBuilder(
-                        valueListenable: controller.buttonPressed,
-                      builder: (context, value, child) =>
-                      Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "${AppShared.actualUser.accounts?[1].bankName}${AppShared.actualUser.accounts?[1].cardNumber.substring(AppShared.actualUser.accounts![1].cardNumber.length - 4)}",
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12),
-                            ),
-                            if(controller.buttonPressed.value == 1)
-                            Text(
-                              AppShared.actualUser.accounts![1].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[1].value}",
-                              style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            if(controller.buttonPressed.value == 2)
-                             Text(
-                              AppShared.actualUser.accounts![1].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[1].value}" : "----" ,
-                              style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                              if(controller.buttonPressed.value == 3)
-                             Text(
-                              AppShared.actualUser.accounts![1].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[1].limit}" : "----" ,
-                              style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-
-                          ],
-                        ),
+                        ValueListenableBuilder(
+                          valueListenable: controller.buttonPressed,
+                          builder: (context, value, child) => Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${AppShared.actualUser.accounts?[0].bankName}${AppShared.actualUser.accounts?[0].cardNumber.substring(AppShared.actualUser.accounts![0].cardNumber.length - 4)}",
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12),
+                              ),
+                              if (controller.buttonPressed.value == 1)
+                                Text(
+                                  AppShared.actualUser.accounts![0].isCreditCard
+                                      ? "----"
+                                      : "R\$ ${AppShared.actualUser.accounts?[0].value}",
+                                  style: const TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 2)
+                                Text(
+                                  AppShared.actualUser.accounts![0].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[0].value}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 3)
+                                Text(
+                                  AppShared.actualUser.accounts![0].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[0].limit}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                            ],
                           ),
+                        ),
                         Container(
                           width: size.width * 0.005,
                           color: Colors.grey,
@@ -208,46 +162,106 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     Row(
                       children: [
-                       ValueListenableBuilder(
-                        valueListenable: controller.buttonPressed,
-                      builder: (context, value, child) =>
-                       Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "${AppShared.actualUser.accounts?[2].bankName}${AppShared.actualUser.accounts?[2].cardNumber.substring(AppShared.actualUser.accounts![2].cardNumber.length - 4)}",
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12),
-                            ),
-                            if(controller.buttonPressed.value == 1)
-                            Text(
-                              AppShared.actualUser.accounts![2].isCreditCard? "----" : "R\$ ${AppShared.actualUser.accounts?[2].value}",
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            if(controller.buttonPressed.value == 2)
+                        ValueListenableBuilder(
+                          valueListenable: controller.buttonPressed,
+                          builder: (context, value, child) => Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Text(
-                              AppShared.actualUser.accounts![2].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[2].value}" : "----" ,
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                             if(controller.buttonPressed.value == 3)
-                              Text(
-                              AppShared.actualUser.accounts![2].isCreditCard? "R\$ ${AppShared.actualUser.accounts?[2].limit}" : "----" ,
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
+                                "${AppShared.actualUser.accounts?[1].bankName}${AppShared.actualUser.accounts?[1].cardNumber.substring(AppShared.actualUser.accounts![1].cardNumber.length - 4)}",
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12),
+                              ),
+                              if (controller.buttonPressed.value == 1)
+                                Text(
+                                  AppShared.actualUser.accounts![1].isCreditCard
+                                      ? "----"
+                                      : "R\$ ${AppShared.actualUser.accounts?[1].value}",
+                                  style: const TextStyle(
+                                      color: Colors.purple,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 2)
+                                Text(
+                                  AppShared.actualUser.accounts![1].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[1].value}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.purple,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 3)
+                                Text(
+                                  AppShared.actualUser.accounts![1].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[1].limit}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.purple,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                            ],
+                          ),
                         ),
-                       ),
+                        Container(
+                          width: size.width * 0.005,
+                          color: Colors.grey,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: size.width * 0.03),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        ValueListenableBuilder(
+                          valueListenable: controller.buttonPressed,
+                          builder: (context, value, child) => Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${AppShared.actualUser.accounts?[2].bankName}${AppShared.actualUser.accounts?[2].cardNumber.substring(AppShared.actualUser.accounts![2].cardNumber.length - 4)}",
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12),
+                              ),
+                              if (controller.buttonPressed.value == 1)
+                                Text(
+                                  AppShared.actualUser.accounts![2].isCreditCard
+                                      ? "----"
+                                      : "R\$ ${AppShared.actualUser.accounts?[2].value}",
+                                  style: const TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 2)
+                                Text(
+                                  AppShared.actualUser.accounts![2].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[2].value}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              if (controller.buttonPressed.value == 3)
+                                Text(
+                                  AppShared.actualUser.accounts![2].isCreditCard
+                                      ? "R\$ ${AppShared.actualUser.accounts?[2].limit}"
+                                      : "----",
+                                  style: const TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                            ],
+                          ),
+                        ),
                         Container(
                           width: size.width * 0.005,
                           color: Colors.grey,
@@ -277,9 +291,8 @@ class _WalletPageState extends State<WalletPage> {
                             ),
                             child: SingleChildScrollView(
                               child: Column(
-                                children: 
-                                  controller.createTransactionsList()
-                              ),
+                                  children:
+                                      controller.createTransactionsList()),
                             ),
                           ),
                         ),
@@ -288,34 +301,56 @@ class _WalletPageState extends State<WalletPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            margin: EdgeInsets.only(
-                                top: size.height * 0.03,
-                                left: size.width * 0.04),
-                            child: const Text(
-                              "Investindo no BRB",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
+                            margin: EdgeInsets.only(right: size.width * 0.04),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      top: size.height * 0.03,
+                                      left: size.width * 0.04),
+                                  child: const Text(
+                                    "Investindo no BRB",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 17,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: const Text(
+                                    "Simulação Para Dinheiro fora do BRB",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 6,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                           InvestmentCard(
+                          InvestmentCard(
                             investmentImage: "poupanca.png",
                             investment: "Poupança",
-                            actualValue: AppShared.actualUser.accounts![2].value,
+                            actualValue:
+                                AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.05,
                           ),
-                         InvestmentCard(
+                          InvestmentCard(
                             investmentImage: "real-state.png",
                             investment: "LCI e LCA",
-                            actualValue: AppShared.actualUser.accounts![2].value,
+                            actualValue:
+                                AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.02,
                           ),
                           InvestmentCard(
                             investmentImage: "certificate.png",
                             investment: "CDB",
-                            actualValue: AppShared.actualUser.accounts![2].value,
+                            actualValue:
+                                AppShared.actualUser.accounts![2].value,
                             returnPercentage: 0.01,
                           ),
                         ],
@@ -323,51 +358,40 @@ class _WalletPageState extends State<WalletPage> {
               ),
             ],
           ),
-          Container(
-            width: size.width,
-            margin: EdgeInsets.only(top: size.height * 0.265),
-            height: size.width * 0.1,
-            child: ValueListenableBuilder(
-                        valueListenable: controller.buttonPressed,
-                      builder: (context, value, child) =>Center(
-              child: 
-              Column(children: [
-                if(controller.buttonPressed.value == 1)
-                Text(
-                "R\$ ${controller.totalSaldo()}",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+          SafeArea(
+            child: Container(
+              width: size.width,
+              margin: EdgeInsets.only(top: size.height * 0.205),
+              height: size.width * 0.1,
+              child: ValueListenableBuilder(
+                valueListenable: controller.buttonPressed,
+                builder: (context, value, child) => Center(
+                  child: Column(
+                    children: [
+                      if (controller.buttonPressed.value == 1)
+                        Text(
+                          "R\$ ${controller.totalSaldo()}",
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w700),
+                        ),
+                      if (controller.buttonPressed.value == 2)
+                        Text(
+                          "R\$ ${controller.totalGastos()}",
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w700),
+                        ),
+                      if (controller.buttonPressed.value == 3)
+                        Text(
+                          "R\$ ${controller.totalLimite()}",
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w700),
+                        ),
+                    ],
+                  ),
+                ),
               ),
-              if(controller.buttonPressed.value == 2)
-               Text(
-                "R\$ ${controller.totalGastos()}",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-              ),
-              if(controller.buttonPressed.value == 3)
-               Text(
-                "R\$ ${controller.totalLimite()}",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-              ),
-              ]
-            ),
             ),
           ),
-          ),
-             Container(
-                            margin: EdgeInsets.only(
-                                top: size.height * 0.82,
-                                left: size.width * 0.26),
-                            child: const Text(
-                              "Simulação Para Dinheiro fora do BRB",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 10,
-                              ),
-                            ),
-                          ),
           const Align(
             alignment: Alignment.bottomCenter,
             child: NavBar(isHomeSelected: false),
