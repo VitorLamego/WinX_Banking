@@ -9,9 +9,17 @@ Aqui vão os passo para o rodar o projeto WinX Banking:
 
 2- Clone o repositório em seu computador e abra ele em um editor de códigos, podendo ser o Android Studio ou o VSCode.
 
-3- Rode em seu terminal o comando ```flutter pub get```.
+3- Rode em seu terminal o comando:
 
-4- Após isso rode em seu terminal ```flutter run```.
+```
+flutter pub get
+```
+
+4- Após isso rode em seu terminal: 
+
+```
+flutter run
+```
 
 
 
