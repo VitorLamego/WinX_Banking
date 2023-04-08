@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:statz_banking/components/card.dart';
 import 'package:statz_banking/core/app_shared.dart';
 import 'package:statz_banking/interfaces/response_interface.dart';
@@ -172,6 +173,15 @@ class HomeController {
     } else {
       return "assets/images/home/nubank1.png";
     }
+  }
+    String maskMoney(double value){
+     var formatter = NumberFormat('###,###,###.##');
+     if (value>1000){
+        return formatter.format(value).replaceAll(".", ',').replaceFirst(",", '.');
+     }
+     else{
+      return formatter.format(value).replaceAll(".", ',');
+     }
   }
 
   List<Widget> createCardsScroll(Size size) {

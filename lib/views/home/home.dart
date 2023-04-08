@@ -169,14 +169,14 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                     Text(
-                                      "R\$ ${controller.invoice}",
+                                      "R\$ ${controller.maskMoney(controller.invoice!)}",
                                       style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 22,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
-                                      "Limite Disponível: R\$ ${controller.getCreditAvailable()}",
+                                      "Limite Disponível: R\$ ${controller.maskMoney(controller.getCreditAvailable())}",
                                       style: const TextStyle(
                                           color: Colors.grey,
                                           fontSize: 12,
