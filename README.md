@@ -53,3 +53,7 @@ flutter run
 <center>
     <img src="video/demo.gif" alt="Employee data" width="200" height="425" title="Employee Data title">               
 </center>
+
+### Protótipo
+
+O aplicativo teve como base um protótipo de alta fidelidade. O app final possui algumas alterações e melhorias visuais comparado ao protótipo, mas foi importante para dar uma base e guiar o desenvolvimento. O protótipo pode ser visualizado no seguinte [link](https://xd.adobe.com/view/ab64cf61-a8ad-4968-b125-fe7b913744fb-fe37/)
