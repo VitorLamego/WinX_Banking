@@ -1,15 +1,44 @@
+import 'dart:math';
+
 import 'package:statz_banking/model/transaction.dart';
 
 class Account {
-  final String name;
+  final String bankName;
   final double value;
-  final double cardNumber;
-  final String clientName;
+  final String cardNumber;
   final String expiryDate;
   final bool isCreditCard;
   final double? limit;
   final List<Transaction> transactions;
 
-  Account(this.name, this.value, this.cardNumber, this.clientName,
-      this.expiryDate, this.transactions, this.isCreditCard, this.limit);
+  Account(
+    this.bankName,
+    this.value,
+    this.cardNumber,
+    this.expiryDate,
+    this.transactions,
+    this.isCreditCard,
+    this.limit,
+  );
+
+  static String generateCardNumber(int number) {
+    Random random = Random();
+    int randomNumber = random.nextInt(800) + 1000;
+
+    return "$randomNumber **** **** $number";
+  }
+
+  factory Account.fromJson(
+      Map<String, dynamic> data, List<Transaction> transactions) {
+    final String cardNumber = generateCardNumber(data["cardNumber"]);
+    return Account(
+      data["name"],
+      double.parse(data["value"]),
+      cardNumber,
+      "23/09",
+      transactions,
+      data["isCreditCard"],
+      data["limit"] == null ? null : double.tryParse(data["limit"]),
+    );
+  }
 }
