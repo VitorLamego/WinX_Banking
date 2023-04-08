@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:statz_banking/core/app_shared.dart';
 
 import '../../../model/account.dart';
@@ -87,6 +90,16 @@ class WalletController {
       totalValue += chartValues[i];
       i++;
     }
+  }
+
+  String maskMoney(double value){
+     var formatter = NumberFormat('###,###,###.##');
+     if (value>1000){
+        return formatter.format(value).replaceAll(".", ',').replaceFirst(",", '.');
+     }
+     else{
+      return formatter.format(value).replaceAll(".", ',');
+     }
   }
 
   String getBankMiniLogo(String bankName) {

@@ -139,8 +139,7 @@ class _WalletPageState extends State<WalletPage> {
                               Text(
                                 controller.chartValues[0] == 0.0
                                     ? "----"
-                                    : controller.chartValues[0]
-                                        .toStringAsFixed(2),
+                                    : controller.maskMoney(controller.chartValues[0]),
                                 style: const TextStyle(
                                     color: Colors.blue,
                                     fontSize: 16,
@@ -174,8 +173,7 @@ class _WalletPageState extends State<WalletPage> {
                               Text(
                                 controller.chartValues[1] == 0.0
                                     ? "----"
-                                    : controller.chartValues[1]
-                                        .toStringAsFixed(2),
+                                    : controller.maskMoney(controller.chartValues[1]),
                                 style: const TextStyle(
                                     color: Colors.purple,
                                     fontSize: 16,
@@ -209,8 +207,7 @@ class _WalletPageState extends State<WalletPage> {
                               Text(
                                 controller.chartValues[2] == 0.0
                                     ? "----"
-                                    : controller.chartValues[2]
-                                        .toStringAsFixed(2),
+                                    : controller.maskMoney(controller.chartValues[2]),
                                 style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 16,
