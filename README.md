@@ -21,5 +21,4 @@ flutter pub get
 flutter run
 ```
 
-
-
+5- Vá em core/app_constants.dart, caso seu emulador seja apple, mantenha da forma que está, caso não, troque para o ip de sua máquina.
