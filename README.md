@@ -16,6 +16,12 @@ Aqui vão os passo para o rodar o projeto WinX Banking:
 flutter pub get
 ```
 
+### Servidor do aplicativo
+
+O WinX Banking foi um aplicativo criado em um Hackaton do Banco BRB na Campus Party de Brasília. Dessa forma, foi desenvolvido um servidor, junto de uma API virtualizada para que as informações do app funcionem da maneira correta.
+
+Por conta disso, para correta execução do aplicativo, é necessário que antes você siga os passos e esteja com o servidor funcionando localmente. É possível ver o passo a passo de como realizar isso no [repositório](https://github.com/LucasPimentel123/WinX_Banking_Server) criado para o servidor da nossa aplicação. 
+
 ### Emulando em Android
 
 Caso esteja utilizando um emulador Android, será necessário realizar uma alteração no arquivo /core/app_constants.dart. Utilizando um emulador Android é necessário que no lugar de 'localhost' você insira o código IP da sua máquina, como exemplo o arquivo ficará como da seguinte forma:
