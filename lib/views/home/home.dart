@@ -169,7 +169,9 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                     Text(
-                                      "R\$ ${controller.maskMoney(controller.invoice!)}",
+                                      controller.invoice != null
+                                          ? "R\$ ${controller.maskMoney(controller.invoice!)}"
+                                          : "---",
                                       style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 22,
