@@ -32,8 +32,8 @@ class SignupController {
   Future<int> logInButtonTrigger() async {
     ResponseInterface? response = await sendLogRequest();
     if (response != null) {
-      if (response.statusCode == 200) {
-        return 200;
+      if (response.statusCode == 201) {
+        return 201;
       } else if (response.statusCode == 404 || response.statusCode == 503 || response.statusCode == 400) {
         return response.statusCode;
       }
@@ -64,7 +64,7 @@ class SignupController {
       validateCpf.value = true;
       validateSenha.value = true;
       validateName.value = true;
-      return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), cpf.text, name.text);
+      return await repository.verifyUserRequest(maskFormatter.getUnmaskedText(), senha.text, name.text);
 
     }
     else{
