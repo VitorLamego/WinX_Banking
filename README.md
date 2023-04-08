@@ -26,6 +26,6 @@ flutter run
 
 ## App Demo
 
-<p alingn="center">
-    <img src="../video/demo.gif" alt="Employee data" width="480" height=auto title="Employee Data title">               
-</p>
+<center>
+    <img src="video/demo.gif" alt="Employee data" width="200" height="425" title="Employee Data title">               
+</center>
