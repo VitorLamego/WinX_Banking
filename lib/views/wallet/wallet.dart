@@ -17,6 +17,12 @@ class _WalletPageState extends State<WalletPage> {
   WalletController controller = WalletController();
 
   @override
+  void initState() {
+    controller.updateBalance();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
