@@ -36,56 +36,67 @@ class _WalletPageState extends State<WalletPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ChartButton(
-                          title: "Saldo",
-                          imageName: "money.png",
-                          isSelected: controller.buttonPressed.value == 1,
-                          function: () => controller.buttonPressed.value = 1,
-                        ),
+                            title: "Saldo",
+                            imageName: "money.png",
+                            isSelected: controller.buttonPressed.value == 1,
+                            function: () {
+                              controller.updateBalance();
+                              controller.buttonPressed.value = 1;
+                            }),
                         ChartButton(
                           title: "Gastos",
                           imageName: "no-money.png",
                           isSelected: controller.buttonPressed.value == 2,
-                          function: () => controller.buttonPressed.value = 2,
+                          function: () {
+                            controller.updateSpent();
+                            controller.buttonPressed.value = 2;
+                          },
                         ),
                         ChartButton(
                           title: "Limite",
                           imageName: "limit.png",
                           isSelected: controller.buttonPressed.value == 3,
-                          function: () => controller.buttonPressed.value = 3,
+                          function: () {
+                            controller.updateLimit();
+                            controller.buttonPressed.value = 3;
+                          },
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
-              Center(
-                child: Container(
-                  height: size.height * 0.2,
-                  width: size.width * 0.8,
-                  margin: EdgeInsets.only(top: size.height * 0.01),
-                  child: PieChart(
-                    PieChartData(
-                      sections: [
-                        PieChartSectionData(
-                          value: 12093.32,
-                          color: Colors.purple,
-                          radius: 15,
-                          showTitle: false,
-                        ),
-                        PieChartSectionData(
-                          value: 9093.32,
-                          color: Colors.blue,
-                          radius: 15,
-                          showTitle: false,
-                        ),
-                        PieChartSectionData(
-                          value: 1093.32,
-                          color: Colors.red,
-                          radius: 15,
-                          showTitle: false,
-                        ),
-                      ],
-                      pieTouchData: PieTouchData(enabled: true),
+              ValueListenableBuilder(
+                valueListenable: controller.buttonPressed,
+                builder: (context, value, child) => Center(
+                  child: Container(
+                    height: size.height * 0.2,
+                    width: size.width * 0.8,
+                    margin: EdgeInsets.only(top: size.height * 0.01),
+                    child: PieChart(
+                      PieChartData(
+                        sections: [
+                          PieChartSectionData(
+                            value: controller.chartValues[0],
+                            color: Colors.purple,
+                            radius: 15,
+                            showTitle: false,
+                          ),
+                          PieChartSectionData(
+                            value: controller.chartValues[1],
+                            color: Colors.blue,
+                            radius: 15,
+                            showTitle: false,
+                          ),
+                          PieChartSectionData(
+                            value: controller.chartValues[2],
+                            color: Colors.red,
+                            radius: 15,
+                            showTitle: false,
+                          ),
+                        ],
+                        pieTouchData: PieTouchData(enabled: true),
+                      ),
                     ),
                   ),
                 ),
@@ -119,36 +130,16 @@ class _WalletPageState extends State<WalletPage> {
                                     fontWeight: FontWeight.w700,
                                     fontSize: 12),
                               ),
-                              if (controller.buttonPressed.value == 1)
-                                Text(
-                                  AppShared.actualUser.accounts![0].isCreditCard
-                                      ? "----"
-                                      : "R\$ ${AppShared.actualUser.accounts?[0].value}",
-                                  style: const TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 2)
-                                Text(
-                                  AppShared.actualUser.accounts![0].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[0].value}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 3)
-                                Text(
-                                  AppShared.actualUser.accounts![0].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[0].limit}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                              Text(
+                                controller.chartValues[0] == 0.0
+                                    ? "----"
+                                    : controller.chartValues[0]
+                                        .toStringAsFixed(2),
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ],
                           ),
                         ),
@@ -174,36 +165,16 @@ class _WalletPageState extends State<WalletPage> {
                                     fontWeight: FontWeight.w700,
                                     fontSize: 12),
                               ),
-                              if (controller.buttonPressed.value == 1)
-                                Text(
-                                  AppShared.actualUser.accounts![1].isCreditCard
-                                      ? "----"
-                                      : "R\$ ${AppShared.actualUser.accounts?[1].value}",
-                                  style: const TextStyle(
-                                      color: Colors.purple,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 2)
-                                Text(
-                                  AppShared.actualUser.accounts![1].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[1].value}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.purple,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 3)
-                                Text(
-                                  AppShared.actualUser.accounts![1].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[1].limit}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.purple,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                              Text(
+                                controller.chartValues[1] == 0.0
+                                    ? "----"
+                                    : controller.chartValues[1]
+                                        .toStringAsFixed(2),
+                                style: const TextStyle(
+                                    color: Colors.purple,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ],
                           ),
                         ),
@@ -229,36 +200,16 @@ class _WalletPageState extends State<WalletPage> {
                                     fontWeight: FontWeight.w700,
                                     fontSize: 12),
                               ),
-                              if (controller.buttonPressed.value == 1)
-                                Text(
-                                  AppShared.actualUser.accounts![2].isCreditCard
-                                      ? "----"
-                                      : "R\$ ${AppShared.actualUser.accounts?[2].value}",
-                                  style: const TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 2)
-                                Text(
-                                  AppShared.actualUser.accounts![2].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[2].value}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              if (controller.buttonPressed.value == 3)
-                                Text(
-                                  AppShared.actualUser.accounts![2].isCreditCard
-                                      ? "R\$ ${AppShared.actualUser.accounts?[2].limit}"
-                                      : "----",
-                                  style: const TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                              Text(
+                                controller.chartValues[2] == 0.0
+                                    ? "----"
+                                    : controller.chartValues[2]
+                                        .toStringAsFixed(2),
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ],
                           ),
                         ),
@@ -291,8 +242,9 @@ class _WalletPageState extends State<WalletPage> {
                             ),
                             child: SingleChildScrollView(
                               child: Column(
-                                  children:
-                                      controller.createTransactionsList()),
+                                  children: controller.createTransactionsList(
+                                      filterDebit:
+                                          controller.buttonPressed.value == 2)),
                             ),
                           ),
                         ),
@@ -368,24 +320,11 @@ class _WalletPageState extends State<WalletPage> {
                 builder: (context, value, child) => Center(
                   child: Column(
                     children: [
-                      if (controller.buttonPressed.value == 1)
-                        Text(
-                          "R\$ ${controller.totalSaldo()}",
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
-                      if (controller.buttonPressed.value == 2)
-                        Text(
-                          "R\$ ${controller.totalGastos()}",
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
-                      if (controller.buttonPressed.value == 3)
-                        Text(
-                          "R\$ ${controller.totalLimite()}",
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
+                      Text(
+                        "R\$ ${controller.totalValue.toStringAsFixed(2)}",
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
                     ],
                   ),
                 ),
