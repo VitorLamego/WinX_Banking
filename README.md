@@ -15,10 +15,21 @@ Aqui vão os passo para o rodar o projeto WinX Banking:
 flutter pub get
 ```
 
+### Emulando em Android
+
+Caso esteja utilizando um emulador Android, será necessário realizar uma alteração no arquivo /core/app_constants.dart. Utilizando um emulador Android é necessário que no lugar de 'localhost' você insira o código IP da sua máquina, como exemplo o arquivo ficará como da seguinte forma:
+
+```
+static const String BASE_URL = "http://192.143.5.70:3333/";
+```
+
+### Emulando em iOS
+
+Para a utilização de emuladores iOS não é necessário alterar o arquivo!
+
+
 4- Após isso rode em seu terminal: 
 
 ```
 flutter run
 ```
-
-5- Vá em core/app_constants.dart, caso seu emulador seja apple, mantenha da forma que está, caso não, troque para o ip de sua máquina. Em último caso, em dispositivo real seu celular deve estar ligado à mesma rede do seu computador.
