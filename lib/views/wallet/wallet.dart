@@ -324,7 +324,7 @@ class _WalletPageState extends State<WalletPage> {
                   child: Column(
                     children: [
                       Text(
-                        "R\$ ${controller.totalValue.toStringAsFixed(2)}",
+                        "R\$ ${controller.maskMoney(controller.totalValue)}",
                         style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w700),
                       ),
